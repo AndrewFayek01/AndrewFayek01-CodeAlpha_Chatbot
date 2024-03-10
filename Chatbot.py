@@ -28,7 +28,8 @@ patterns = [
     (r'how are you?', ['I am good, thank you!', 'I am doing well, how about you?']),
     (r'(.*) your name?', ["I'm a chatbot.", "You can call me Chatbot."]),
     (r'(.*) (location|city) ?', ['I am a virtual entity, so I do not have a physical location.']),
-    (r'quit', ['Bye, take care.', 'Goodbye!', 'See you later!']),
+    (r'bye|good bye|quit| Good bye ', ['Bye, take care.', 'Goodbye!', 'See you later!']),
+    (r'thank you', ['you welcome ']),
     (r'(.*)', ['Sorry, I did not understand that.', 'Could you please repeat that?'])
 ]
 
@@ -42,7 +43,7 @@ def start_chat():
         user_input = input("You: ")
         response = chatbot.respond(user_input)
         print("Chatbot:", response)
-        if user_input.lower() == 'quit':
+        if user_input.lower() in ("bye", "good bye", "quit"):         
             break
 
 # Start the conversation
